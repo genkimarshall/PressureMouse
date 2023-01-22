@@ -1,0 +1,43 @@
+From c95f62aa08af77318055b029657bd0fd4bb20bcb Mon Sep 17 00:00:00 2001
+From: Genki Marshall <genki@fastmail.com>
+Date: Sat, 21 Jan 2023 23:52:37 -0800
+Subject: [PATCH 2/2] Add regular-mouse endpoint to pressure-mouse
+
+---
+ cores/teensy4/usb_desc.h | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/cores/teensy4/usb_desc.h b/cores/teensy4/usb_desc.h
+index 9e2872b..e6193b0 100644
+--- a/cores/teensy4/usb_desc.h
++++ b/cores/teensy4/usb_desc.h
+@@ -285,9 +285,9 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
+   #define PRODUCT_NAME		{'P','r','e','s','s','u','r','e',' ','M','o','u','s','e'}
+   #define PRODUCT_NAME_LEN	14
+   #define EP0_SIZE		64
+-  #define NUM_ENDPOINTS		3
+-  #define NUM_USB_BUFFERS	14
+-  #define NUM_INTERFACE		2
++  #define NUM_ENDPOINTS		4
++  #define NUM_USB_BUFFERS	24
++  #define NUM_INTERFACE		3
+   #define SEREMU_INTERFACE	1
+   #define SEREMU_TX_ENDPOINT	2
+   #define SEREMU_TX_SIZE	64
+@@ -300,8 +300,13 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
+   #define PRESSURE_MOUSE_SIZE		8
+   #define PRESSURE_MOUSE_INTERVAL	1
+   #define PRESSURE_MOUSE_REPORT_ID	1
++  #define MOUSE_INTERFACE	2
++  #define MOUSE_ENDPOINT	4
++  #define MOUSE_SIZE		8
++  #define MOUSE_INTERVAL	1
+   #define ENDPOINT2_CONFIG	ENDPOINT_RECEIVE_INTERRUPT + ENDPOINT_TRANSMIT_INTERRUPT
+   #define ENDPOINT3_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
++  #define ENDPOINT4_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+ 
+ #elif defined(USB_SERIAL_HID)
+   #define VENDOR_ID		0x16C0
+-- 
+2.37.1 (Apple Git-137.1)
+
